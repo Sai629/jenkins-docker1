@@ -54,9 +54,6 @@ pipeline {
                      serverId: 'jenkins-artifactory',
                     releaseRepo: 'saikiran-libs-release-local',
                     snapshotRepo: 'saikiran-libs-snapshot-local'
-                    // By default, 3 threads are used to upload the artifacts to Artifactory. You can override this default by setting:
-                    threads: 6,
-                    // Attach custom properties to the published artifacts:
                     properties: ['Branch=${BRANCH_NAME}', 'key2=value2']
                 )
                 rtMavenRun (
