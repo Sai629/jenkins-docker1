@@ -1,0 +1,39 @@
+pipeline {
+    agent any;
+    triggers {
+        pollSCM("* * * *")
+    }
+ 
+    stages {
+        stage('git'){
+            steps {
+                sh 'echo checkout code'
+                checkout scm
+            }
+            
+        }
+        stage('compile'){
+            steps {
+               sh 'mvn clean compile'   
+            }
+        }
+          stage('test'){
+            steps {
+                 sh 'mvn test' 
+            } 
+        }
+        stage('junit'){
+            steps {
+                junit '**/*.xml'
+            }
+            
+        }
+        stage('sonar'){
+            steps {
+                withSonarQubeEnv(credentialsId: 'sonar') {
+                  sh 'mvn sonar:sonar'
+                }
+            }
+         }
+    }
+}
