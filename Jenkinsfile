@@ -1,8 +1,9 @@
 pipeline {
+     agent any;
      tools {
             maven 'maven 3'
             jdk 'jdk8'
-        }
+    }
     
     stages {
         stage('git'){
