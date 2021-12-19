@@ -1,9 +1,8 @@
 pipeline {
-    agent{
-        docker{
-            image "maven:3.6.3-jdk-8"
+     tools {
+            maven 'm3'
+            jdk 'jdk11'
         }
-    }
     
     stages {
         stage('git'){
