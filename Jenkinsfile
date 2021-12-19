@@ -1,5 +1,8 @@
 pipeline {
     agent any;
+    tool name: 'maven 3', type: 'maven'
+    tool name: 'jdk8', type: 'jdk'
+    
     stages {
         stage('git'){
             steps {
