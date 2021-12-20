@@ -58,7 +58,7 @@ pipeline {
                 rtMavenRun (
                     // Tool name from Jenkins configuration.
                     // Set to true if you'd like the build to use the Maven Wrapper.
-                    useWrapper: true,
+                    useWrapper: false,
                     pom: 'pom.xml',
                     goals: 'install',
                     // Maven options.
