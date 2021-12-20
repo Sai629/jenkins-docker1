@@ -56,9 +56,6 @@ pipeline {
                     snapshotRepo: 'saikiran-libs-snapshot-local'
                 )
                 rtMavenRun (
-                    // Tool name from Jenkins configuration.
-                    // Set to true if you'd like the build to use the Maven Wrapper.
-                    useWrapper: false,
                     pom: 'pom.xml',
                     goals: 'install',
                     // Maven options.
@@ -69,7 +66,6 @@ pipeline {
                     buildName: '${JOB_BASE_NAME}',
                     buildNumber: '${BUILD_NUMBER}',
                     // Optional - Only if this build is associated with a project in Artifactory, set the project key as follows.
-                    project: 'my-project-key'
                 )
             }    
         }
