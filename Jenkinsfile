@@ -32,7 +32,7 @@ pipeline {
         stage('sonar'){
             steps {
                 withSonarQubeEnv('sonar') {
-                  sh 'mvn sonar:sonar'
+                    sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=sai629_jenkins-docker1'
                 }
             }
         }
