@@ -59,7 +59,7 @@ pipeline {
                     // Tool name from Jenkins configuration.
                     // Set to true if you'd like the build to use the Maven Wrapper.
                     useWrapper: true,
-                    pom: 'jenkins-docker1/pom.xml',
+                    pom: 'pom.xml',
                     goals: 'install',
                     // Maven options.
                     opts: '-Xms1024m -Xmx4096m',
