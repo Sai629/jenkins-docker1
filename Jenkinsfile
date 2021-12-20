@@ -56,16 +56,11 @@ pipeline {
                     snapshotRepo: 'saikiran-libs-snapshot-local'
                 )
                 rtMavenRun (
+                    tool:'maven 3'
                     pom: 'pom.xml',
                     goals: 'install',
-                    // Maven options.
-                    opts: '-Xms1024m -Xmx4096m',
                     resolverId: 'resolver1',
                     deployerId: 'deployer1',
-                    // If the build name and build number are not set here, the current job name and number will be used:
-                    buildName: '${JOB_BASE_NAME}',
-                    buildNumber: '${BUILD_NUMBER}',
-                    // Optional - Only if this build is associated with a project in Artifactory, set the project key as follows.
                 )
             }    
         }
