@@ -56,7 +56,7 @@ pipeline {
                     snapshotRepo: 'saikiran-libs-snapshot-local'
                 )
                 rtMavenRun (
-                    tool:'maven 3'
+                    tool:'maven 3',
                     pom: 'pom.xml',
                     goals: 'install',
                     resolverId: 'resolver1',
