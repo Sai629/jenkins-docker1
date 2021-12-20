@@ -45,13 +45,13 @@ pipeline {
             steps {
                 rtMavenResolver (
                     id: 'resolver1',
-                    serverId: 'jenkins-artifactory',
+                    serverId: 'art1',
                     releaseRepo: 'libs-release-local',
                     snapshotRepo: 'libs-snapshot-local'
                 )  
                 rtMavenDeployer (
                     id: 'deployer1',
-                     serverId: 'jenkins-artifactory',
+                     serverId: 'art1',
                     releaseRepo: 'libs-release-local',
                     snapshotRepo: 'libs-snapshot-local'
                 )
