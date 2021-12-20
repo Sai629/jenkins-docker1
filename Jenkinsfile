@@ -54,7 +54,6 @@ pipeline {
                      serverId: 'jenkins-artifactory',
                     releaseRepo: 'saikiran-libs-release-local',
                     snapshotRepo: 'saikiran-libs-snapshot-local'
-                    properties: ['Branch=${BRANCH_NAME}', 'key2=value2']
                 )
                 rtMavenRun (
                     // Tool name from Jenkins configuration.
