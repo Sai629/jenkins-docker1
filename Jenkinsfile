@@ -46,14 +46,14 @@ pipeline {
                 rtMavenResolver (
                     id: 'resolver1',
                     serverId: 'jenkins-artifactory',
-                    releaseRepo: 'saikiran-libs-release-local',
-                    snapshotRepo: 'saikiran-libs-snapshot-local'
+                    releaseRepo: 'libs-release-local',
+                    snapshotRepo: 'libs-snapshot-local'
                 )  
                 rtMavenDeployer (
                     id: 'deployer1',
                      serverId: 'jenkins-artifactory',
-                    releaseRepo: 'saikiran-libs-release-local',
-                    snapshotRepo: 'saikiran-libs-snapshot-local'
+                    releaseRepo: 'libs-release-local',
+                    snapshotRepo: 'libs-snapshot-local'
                 )
                 rtMavenRun (
                     tool:'maven 3',
