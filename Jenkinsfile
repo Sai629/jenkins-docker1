@@ -38,7 +38,7 @@ pipeline {
         }
         stage('package application'){
             steps {
-                sh 'mvn package' 
+                sh 'mvn package -D skiptest' 
             }    
         }
         stage('add to repo'){
