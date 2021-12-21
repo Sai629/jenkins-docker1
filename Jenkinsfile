@@ -69,33 +69,33 @@ pipeline {
             }
             stage('Promote Build') {
                 steps {
-                    withCredentials([usernameColonPassword(credentialsId: 'artificatory', variable: 'logindata')]) {
-                     sh 'curl -u${logindata} -X PUT "http://192.168.50.100:8081/artifactory/api/storage/libs-snapshot-local/jenkins-docker1/${BUILD_NUMBER}/ci-pipeline-pragra-0.0.1.jar?properties=Promoted=Yes"'
+                    withCredentials([usernamePassword(credentialsId: 'artifactory', passwordVariable: 'PASS', usernameVariable: 'USER')])  {
+                     sh 'curl -u${logindata} -X PUT "http://192.168.50.100:8081/artifactory/api/storage/libs-snapshot-local/jenkins-docker1/${BUILD_NUMBER}/ci-jenkins-docker-0.0.1.jar?properties=Promoted=Yes"'
                  }
               }
             }
-        stage('add to repo'){
-            steps {
-                rtMavenResolver (
-                    id: 'resolver1',
-                    serverId: 'art1',
-                    releaseRepo: 'libs-release-local',
-                    snapshotRepo: 'libs-snapshot-local'
-                )  
-                rtMavenDeployer (
-                    id: 'deployer1',
-                     serverId: 'art1',
-                    releaseRepo: 'libs-release-local',
-                    snapshotRepo: 'libs-snapshot-local'
-                )
-                rtMavenRun (
-                    tool:'maven 3',
-                    pom: 'pom.xml',
-                    goals: 'install',
-                    resolverId: 'resolver1',
-                    deployerId: 'deployer1',
-                )
-            }    
-        }
+//         stage('add to repo'){
+//             steps {
+//                 rtMavenResolver (
+//                     id: 'resolver1',
+//                     serverId: 'art1',
+//                     releaseRepo: 'libs-release-local',
+//                     snapshotRepo: 'libs-snapshot-local'
+//                 )  
+//                 rtMavenDeployer (
+//                     id: 'deployer1',
+//                      serverId: 'art1',
+//                     releaseRepo: 'libs-release-local',
+//                     snapshotRepo: 'libs-snapshot-local'
+//                 )
+//                 rtMavenRun (
+//                     tool:'maven 3',
+//                     pom: 'pom.xml',
+//                     goals: 'install',
+//                     resolverId: 'resolver1',
+//                     deployerId: 'deployer1',
+//                 )
+//             }    
+//         }
     }
 }
