@@ -69,7 +69,7 @@ pipeline {
             }
             stage('Promote Build') {
                 steps {
-                    withCredentials([usernamePassword(credentialsId: 'artifactory', passwordVariable: 'PASS', usernameVariable: 'USER')])  {
+                    withCredentials(credentialsId: 'f87e0a56-35e6-4f2b-97fa-7917e680b048', passwordVariable: 'PASS', usernameVariable: 'USER')])   {
                      sh 'curl -u${logindata} -X PUT "http://192.168.50.100:8081/artifactory/api/storage/libs-snapshot-local/jenkins-docker1/${BUILD_NUMBER}/ci-jenkins-docker-0.0.1.jar?properties=Promoted=Yes"'
                  }
               }
